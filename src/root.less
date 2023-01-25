@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #232328;
+  color: #eee;
+  text-align: center;
+  font-family: 'Major Mono Display', monospace;
+}
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/** button reset */
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/** end button reset */
+
+button {
+  cursor: pointer;
+  padding: 1em 2em;
+  border: 1px solid #ccc;
+  font-size: 1.5rem;
+  position: relative;
+  transition: border-color 0.2s ease-out;
+  color: transparent;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform-origin: center center;
+    transform: scale(0);
+    transition: transform 0.2s ease-out;
+    background-color: #eee;
+  }
+
+  &::after {
+    content: attr(aria-label);
+    padding: 1em 2em;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #eee;
+    transition: color 0.2s ease-out;
+    // font-weight: bold;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: #eee;
+
+    &::before {
+      transform: scale(1);
+    }
+
+    &::after {
+      color: #232328;
+    }
+  }
+}
+
+a:any-link {
+  color: inherit;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
