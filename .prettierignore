@@ -1,0 +1,5 @@
+.cache
+public
+size-plugin.json
+.yarn
+src/gatsby-types.d.ts

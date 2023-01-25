@@ -13,20 +13,29 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "gatsby": "^5.4.2",
+    "@vtex/gatsby-plugin-nginx": "^1.5.21-avon.0",
+    "facepaint": "^1.2.1",
+    "gatsby": "^5.5.0",
     "gatsby-plugin-emotion": "^8.5.0",
+    "gatsby-plugin-less": "^7.5.0",
+    "gatsby-plugin-provide-react": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@flarum/prettier-config": "^1.0.0",
+    "@types/facepaint": "^1.2.2",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.4"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
