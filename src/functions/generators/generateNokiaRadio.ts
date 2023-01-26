@@ -2,7 +2,7 @@ import { generateRandomChars } from '../generateRandomChars'
 import { randomChoice } from '../randomChoice'
 
 export function generateNokiaRadio(): string {
-  return randomChoice([generate4CharRRH, generate5CharRRH], [80, 36])()
+  return randomChoice([generate4CharRRH, generate5CharRRH, generateFlexi], [80, 36, 64])()
 }
 
 function generate5CharRRH(): string {
@@ -26,4 +26,17 @@ function generate4CharRRH(): string {
   const twoRandomChars = generateRandomChars(2)
 
   return firstChar + secondChar + twoRandomChars
+}
+
+function generateFlexi(): string {
+  const firstChars = 'FW'
+
+  const randomChars = generateRandomChars(2)
+
+  const num2 = randomChoice([true, false], [10, 7])
+
+  const useSuffix = !num2 ? '' : randomChoice([true, false], [25, 10])
+  const suffix = !useSuffix ? '' : randomChoice(['WA', 'WB', 'WC', 'WD', 'WF', 'RA', 'RB'], [8, 6, 4, 3, 1, 2, 1])
+
+  return firstChars + (num2 ? '2' : '') + randomChars + suffix
 }
