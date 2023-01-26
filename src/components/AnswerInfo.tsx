@@ -29,7 +29,7 @@ export default function AnswerInfo({ radioSelection, onContinue, wasCorrectAnswe
         aria-live="polite"
         css={mq({ fontSize: ['2rem', '2.5rem', '3rem', '4rem'], fontWeight: 'bold', textTransform: 'lowercase', marginTop: '2em' })}
       >
-        {radioSelection.model} is a {radioSelection.isFake ? 'keysmask' : 'radio'}
+        {radioSelection.model} is a {radioSelection.isFake ? 'keysmash' : 'radio'}
       </p>
 
       {!radioSelection.isFake && (
