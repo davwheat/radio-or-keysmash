@@ -1,11 +1,8 @@
-import { useEffect } from 'react'
+import { SEO } from '../components/SEO'
 
-import ChooseAnswer from '../components/ChooseAnswer'
 import facepaint from 'facepaint'
 
-import { HeadFC, Link, navigate, PageProps } from 'gatsby'
-
-import AnswerInfo from '../components/AnswerInfo'
+import { Link, HeadFC, PageProps } from 'gatsby'
 
 const breakpoints = [600, 900, 1200]
 
@@ -47,4 +44,4 @@ export default function Error404Page(props: PageProps) {
   )
 }
 
-export const Head: HeadFC = () => <title>Error 404 - Radio or keysmash?</title>
+export const Head: HeadFC = () => <SEO title="Error 404 - Radio or Keysmash?" />

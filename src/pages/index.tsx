@@ -7,6 +7,7 @@ import ChooseAnswer from '../components/ChooseAnswer'
 import type { HeadFC, PageProps } from 'gatsby'
 import type { RadioSelection } from '../functions/chooseRandomRadio'
 import AnswerInfo from '../components/AnswerInfo'
+import { SEO } from '../components/SEO'
 
 // const breakpoints = [600, 900, 1200]
 
@@ -71,4 +72,4 @@ export default function IndexPage(props: PageProps) {
   )
 }
 
-export const Head: HeadFC = () => <title>Radio or keysmash?</title>
+export const Head: HeadFC = () => <SEO />
