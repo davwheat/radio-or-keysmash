@@ -47,4 +47,4 @@ export default function Error404Page(props: PageProps) {
   )
 }
 
-export const Head: HeadFC = () => <title>Radio or keysmash?</title>
+export const Head: HeadFC = () => <title>Error 404 - Radio or keysmash?</title>
