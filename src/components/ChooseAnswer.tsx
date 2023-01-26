@@ -1,18 +1,14 @@
-import { useState } from 'react'
-
-import { getRadioSelection } from '../functions/getRadioSelection'
 import facepaint from 'facepaint'
 
-import type { HeadFC, PageProps } from 'gatsby'
+import type { HeadFC } from 'gatsby'
 import type { RadioSelection } from '../functions/chooseRandomRadio'
-import { useCallback } from 'react'
 
 const breakpoints = [600, 900, 1200]
 
 const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
 
 export interface ChooseAnswerProps {
-  radioSelection: RadioSelection
+  radioSelection: RadioSelection | null
   onChooseAnswer: (answer: 'radio' | 'keysmash') => void
 }
 
@@ -28,9 +24,18 @@ export default function ChooseAnswer({ radioSelection, onChooseAnswer }: ChooseA
         Radio or Keysmash?
       </h1>
 
-      <p css={{ fontSize: '4.5rem', textTransform: 'lowercase', marginTop: '2em' }}>{radioSelection.model}</p>
+      <p css={{ fontSize: '4.5rem', textTransform: 'lowercase', marginTop: '2em' }}>{radioSelection?.model ?? <>&nbsp;</>}</p>
 
-      <div css={mq({ display: 'grid', gridTemplateColumns: ['1fr', '1fr 1fr'], gap: 16 })}>
+      <div
+        css={mq({
+          display: 'grid',
+          gridTemplateColumns: ['1fr', '1fr 1fr'],
+          gap: 16,
+          maxWidth: 800,
+          margin: 'auto',
+          width: '100%',
+        })}
+      >
         <button
           aria-label="radio"
           onClick={() => {
@@ -51,5 +56,3 @@ export default function ChooseAnswer({ radioSelection, onChooseAnswer }: ChooseA
     </>
   )
 }
-
-export const Head: HeadFC = () => <title>Radio or keysmash?</title>

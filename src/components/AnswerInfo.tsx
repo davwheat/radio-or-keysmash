@@ -1,11 +1,7 @@
-import { useState } from 'react'
-
-import { getRadioSelection } from '../functions/getRadioSelection'
 import facepaint from 'facepaint'
 
-import type { HeadFC, PageProps } from 'gatsby'
+import type { HeadFC } from 'gatsby'
 import type { RadioSelection } from '../functions/chooseRandomRadio'
-import { useCallback } from 'react'
 
 const breakpoints = [600, 900, 1200]
 
@@ -40,7 +36,16 @@ export default function AnswerInfo({ radioSelection, onContinue, wasCorrectAnswe
         <p css={mq({ fontSize: ['1.5rem', '2rem', '2.5rem'], textTransform: 'lowercase', marginTop: '2em' })}>{radioSelection.name}</p>
       )}
 
-      <div css={{ display: 'grid', gridTemplateColumns: '1fr', gap: 16 }}>
+      <div
+        css={{
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: 16,
+          maxWidth: 800,
+          margin: 'auto',
+          width: '100%',
+        }}
+      >
         <button aria-label="continue" onClick={() => onContinue()}>
           continue
         </button>
@@ -48,5 +53,3 @@ export default function AnswerInfo({ radioSelection, onContinue, wasCorrectAnswe
     </>
   )
 }
-
-export const Head: HeadFC = () => <title>Radio or keysmash?</title>

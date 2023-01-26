@@ -1,24 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getRadioSelection } from '../functions/getRadioSelection'
 import ChooseAnswer from '../components/ChooseAnswer'
-import facepaint from 'facepaint'
+// import facepaint from 'facepaint'
 
 import type { HeadFC, PageProps } from 'gatsby'
 import type { RadioSelection } from '../functions/chooseRandomRadio'
 import AnswerInfo from '../components/AnswerInfo'
 
-const breakpoints = [600, 900, 1200]
+// const breakpoints = [600, 900, 1200]
 
-const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
+// const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
 
 export default function IndexPage(props: PageProps) {
-  const [radio, setRadio] = useState<RadioSelection>(getRadioSelection())
+  const [radio, setRadio] = useState<RadioSelection | null>(null)
   const [gameState, setGameState] = useState<'correct' | 'incorrect' | 'guessing'>('guessing')
 
   function chooseNewRadio() {
     setRadio(getRadioSelection())
   }
+
+  useEffect(() => {
+    if (radio === null) chooseNewRadio()
+  }, [radio])
 
   return (
     <div
@@ -34,10 +38,12 @@ export default function IndexPage(props: PageProps) {
       }}
     >
       <main css={{ padding: 16, marginTop: 'auto', marginBottom: 'auto' }}>
-        {gameState === 'guessing' && (
+        {(gameState === 'guessing' || radio === null) && (
           <ChooseAnswer
             radioSelection={radio}
             onChooseAnswer={answer => {
+              if (radio === null) return
+
               if ((answer === 'radio' && !radio.isFake) || (answer === 'keysmash' && radio.isFake)) {
                 setGameState('correct')
               } else {
@@ -46,7 +52,7 @@ export default function IndexPage(props: PageProps) {
             }}
           />
         )}
-        {gameState !== 'guessing' && (
+        {gameState !== 'guessing' && radio !== null && (
           <AnswerInfo
             radioSelection={radio}
             onContinue={() => {
