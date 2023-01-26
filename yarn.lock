@@ -7048,6 +7048,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-manifest@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "gatsby-plugin-manifest@npm:5.5.0"
+  dependencies:
+    "@babel/runtime": ^7.20.7
+    gatsby-core-utils: ^4.5.0
+    gatsby-plugin-utils: ^4.5.0
+    semver: ^7.3.8
+    sharp: ^0.31.3
+  peerDependencies:
+    gatsby: ^5.0.0-next
+  checksum: ca001fcfcb98cdc3afc2d6a745cbc1bdcdf8296106eaeb4f50f01e636d3677caafa98642fdf627e76fdb723e948c8d044b82955a9da9c687c79c2569293461b5
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-page-creator@npm:^5.5.0":
   version: 5.5.0
   resolution: "gatsby-plugin-page-creator@npm:5.5.0"
@@ -11117,6 +11132,7 @@ __metadata:
     gatsby: ^5.5.0
     gatsby-plugin-emotion: ^8.5.0
     gatsby-plugin-less: ^7.5.0
+    gatsby-plugin-manifest: ^5.5.0
     gatsby-plugin-provide-react: ^1.0.2
     prettier: ^2.8.3
     react: ^18.2.0
