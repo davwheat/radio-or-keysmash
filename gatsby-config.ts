@@ -15,7 +15,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-provide-react',
     'gatsby-plugin-emotion',
     'gatsby-plugin-less',
-    '@vtex/gatsby-plugin-nginx',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,6 +28,7 @@ const config: GatsbyConfig = {
         icon: 'src/assets/signal_icon.svg',
       },
     },
+    '@vtex/gatsby-plugin-nginx',
   ],
 }
 
