@@ -18,6 +18,9 @@ export default function HTML(props) {
         {props.preBodyComponents}
         <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
+
+        {/* Cloudflare Web Analytics */}
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "473ca5ce11234026bac5c8b5e6b16863"}' />
       </body>
     </html>
   )
