@@ -31,7 +31,12 @@ function generate4CharRRH(): string {
 function generateFlexi(): string {
   const firstChars = 'FW'
 
-  const randomChars = generateRandomChars(2)
+  const charCount = randomChoice([2, 3], [35, 21])
+  const randomChars = generateRandomChars(charCount)
+
+  if (charCount === 3) {
+    return firstChars + '2' + randomChars.substring(0, 2) + randomChoice(['A', 'B', 'C', 'D', 'F'], [9, 6, 3, 2, 1])
+  }
 
   const num2 = randomChoice([true, false], [10, 7])
 
