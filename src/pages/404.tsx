@@ -1,49 +1,50 @@
-import * as React from 'react'
-import { Link, HeadFC, PageProps } from 'gatsby'
+import { useEffect } from 'react'
 
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import ChooseAnswer from '../components/ChooseAnswer'
+import facepaint from 'facepaint'
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-}
+import { HeadFC, Link, navigate, PageProps } from 'gatsby'
 
-const NotFoundPage: React.FC<PageProps> = () => {
+import AnswerInfo from '../components/AnswerInfo'
+
+const breakpoints = [600, 900, 1200]
+
+const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
+
+export default function Error404Page(props: PageProps) {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === 'development' ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <div
+      css={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <main css={{ padding: 16, marginTop: 'auto', marginBottom: 'auto' }}>
+        <h1
+          css={mq({
+            fontSize: ['1.5rem', '2rem', '3rem', '3.5rem'],
+            margin: '0 1rem',
+          })}
+        >
+          Radio or Keysmash?
+        </h1>
+
+        <p css={mq({ fontSize: ['1.5rem', '2rem', '2.5rem'], textTransform: 'lowercase', marginTop: '2em' })}>Error 404</p>
+
+        <p css={mq({ fontSize: ['1.5rem', '2rem', '2.5rem'], textTransform: 'lowercase', marginTop: '2em' })}>
+          <Link to="/">Return to game</Link>
+        </p>
+      </main>
+
+      <footer css={{ padding: 16 }}>
+        &copy; {new Date().getFullYear()} David Wheatley &mdash; <a href="https://github.com/davwheat/radio-or-keysmash">open source</a>
+      </footer>
+    </div>
   )
 }
 
-export default NotFoundPage
-
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = () => <title>Radio or keysmash?</title>
