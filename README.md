@@ -29,3 +29,22 @@ To add a new vendor, you should:
 - add the vendor's generator to the `generators` dictionary in `src/functions/generateRandomRadio.ts`
 
 ...and that should be it!
+
+## Running locally
+
+You can run this site locally in either a development or production mode.
+
+### Development mode
+
+In development mode, first install all required dependencies with `yarn`, then run `yarn develop` to spawn Gatsby's development server. This
+offers hot-reload capability meaning any changes to the code will automatically be applied in the browser in real-time.
+
+### Production
+
+To run this website in production, you should use Docker. Simply run `docker compose up -d --build`, and the site will be built and go live on
+`localhost:8084`.
+
+If you make any changes, you will need to re-run this command. Ensure you use the `--build` option, else any code changes will not be applied.
+
+Building and spinning up the container takes approximately 60 seconds on a modern high-performance system. On my Hetzner VPS, this is slightly
+longer at approximately 150 seconds.
