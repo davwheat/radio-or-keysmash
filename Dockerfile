@@ -1,4 +1,4 @@
-FROM georgjung/nginx-brotli:mainline
+FROM nginx:1
 
 # Arguments defined in docker-compose.yml
 ARG user
@@ -32,6 +32,4 @@ RUN rm -rf /app
 
 # Replace port
 RUN sed -i -e 's/\$PORT/80/' /etc/nginx/nginx.conf
-# Load brotli
-RUN sed -i '1s/^/load_module modules\/ngx_http_brotli_static_module.so;\nload_module modules\/ngx_http_brotli_filter_module.so;\n/' /etc/nginx/nginx.conf
-
+RUN sed -i -e '/^  brotli/d' /etc/nginx/nginx.conf
