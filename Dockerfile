@@ -5,12 +5,12 @@ ARG user
 ARG uid
 
 # Install Yarn and Node 18
-RUN apt-get update -qq && apt-get install gnupg2 -y
+RUN apt update -qq && apt install gnupg2 -y
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get update -qq && apt-get install -y nodejs yarn
-RUN apt install python3 make g++
+RUN apt update -qq && apt install -y nodejs yarn
+RUN apt install -y python3 make g++
 
 # Create system user
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
