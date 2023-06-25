@@ -28,7 +28,6 @@ const config: GatsbyConfig = {
         icon: 'src/assets/signal_icon.svg',
       },
     },
-    '@vtex/gatsby-plugin-nginx',
   ],
 }
 
